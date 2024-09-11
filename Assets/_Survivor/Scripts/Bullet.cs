@@ -35,7 +35,7 @@ public class Bullet : MonoBehaviour
 
         _rigidbody.MovePosition(transform.position + transform.forward * _speed * Time.deltaTime);
     }
-
+    
     void OnTriggerEnter(Collider collider)
     {
         if (collider.TryGetComponent<Mob>(out var mob))

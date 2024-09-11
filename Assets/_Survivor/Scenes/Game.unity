@@ -578,6 +578,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameOverScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 165026449566527531, guid: e0f88c6b01ea546fd8afe64197eb3d3b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6603769923158847264, guid: e0f88c6b01ea546fd8afe64197eb3d3b,
         type: 3}
       propertyPath: m_Pivot.x
@@ -795,6 +800,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 5630497365884894428, guid: 84807ac58c66942d581bd90927ece42f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

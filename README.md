@@ -1,14 +1,14 @@
 # Assignments
 
-- Add pickings with new weapons
-- Generalise and add more weapons
-- Add Mob spawn waves
-- Show which way the character is turning and add prototype visuals for that
-- Add main menu with level selection
-- Add health to mobs
-- More mob types
-- Add xp drops from mobs and level progress to UI
-- Fixing the SetActiveScene bug
+- [] Add pickings with new weapons
+- [] Generalise and add more weapons
+- [] Add Mob spawn waves
+- [] Show which way the character is turning and add prototype visuals for that
+- [] Add main menu with level selection
+- [] Add health to mobs
+- [] More mob types
+- [] Add xp drops from mobs and level progress to UI
+- [] Fixing the SetActiveScene bug
 
 
 

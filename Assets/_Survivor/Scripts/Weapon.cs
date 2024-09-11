@@ -37,6 +37,8 @@ public class Weapon : MonoBehaviour
 
             var currentPosition = transform.position;
 
+            if (Mob.Actives.Count == 0)
+                return;
             var mob = Mob.Actives[_enemyIndex % Mob.Actives.Count];
 
             _enemyIndex += 1;
