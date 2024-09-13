@@ -4,7 +4,7 @@ namespace _Survivor.Scripts
 {
     public class SpecialBullet : Bullet
     {
-        [SerializeField] private float explosionRadius = 5f;
+        [SerializeField] private float explosionRadius = 10f;
         [SerializeField] private float explosionDamage = 50f;
         [SerializeField] private float maxRange = 100f; 
         private Vector3 initialPosition;
@@ -14,6 +14,7 @@ namespace _Survivor.Scripts
         protected override void Awake()
         {
             base.Awake();
+            damage = 15f;
             initialPosition = transform.position;
         }
         

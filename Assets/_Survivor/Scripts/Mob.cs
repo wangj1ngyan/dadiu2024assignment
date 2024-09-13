@@ -7,8 +7,6 @@ public class Mob : MonoBehaviour
 
     public static List<Mob> Actives = new List<Mob>();
 
-
-
     [SerializeField] MobSettings _settings;
 
     CharacterController _controller;
@@ -22,12 +20,6 @@ public class Mob : MonoBehaviour
         _target = Object.FindAnyObjectByType<Hero>();
         _health = GetComponent<Health>();
         _health.SetMaxHealth(_settings.MaxHealth);
-        _health.Died.AddListener(OnMobDied);
-    }
-    
-    void OnMobDied()
-    {
-        Destroy(gameObject); 
     }
 
     void OnEnable()

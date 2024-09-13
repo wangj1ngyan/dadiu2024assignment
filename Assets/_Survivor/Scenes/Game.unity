@@ -531,12 +531,12 @@ PrefabInstance:
         type: 3}
       propertyPath: weapons.Array.data[0]
       value: 
-      objectReference: {fileID: 1177235581}
+      objectReference: {fileID: 803932973}
     - target: {fileID: 7231160682120488039, guid: 9274bb611de13f944883ba053864c571,
         type: 3}
       propertyPath: weapons.Array.data[1]
       value: 
-      objectReference: {fileID: 803932973}
+      objectReference: {fileID: 1177235581}
     - target: {fileID: 7231160682120488039, guid: 9274bb611de13f944883ba053864c571,
         type: 3}
       propertyPath: weapons.Array.data[2]
