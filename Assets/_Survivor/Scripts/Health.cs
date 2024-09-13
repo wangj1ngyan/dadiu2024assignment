@@ -14,8 +14,8 @@ public class Health : MonoBehaviour
     public UnityEvent<DamageTakenArgs> DamageTaken = new UnityEvent<DamageTakenArgs>();
 
 
-    public float CurrentHealth;
-    public float MaxHealth;
+    public float currentHealth;
+    public float maxHealth = 100f;
 
 
     int _countPerFrame;
@@ -23,7 +23,7 @@ public class Health : MonoBehaviour
 
     void Awake()
     {
-        CurrentHealth = MaxHealth;
+        currentHealth = maxHealth;
     }
     
     void FixedUpdate()
@@ -32,22 +32,55 @@ public class Health : MonoBehaviour
         _countPerFrame = 0;
     }
 
-    public void TakeDamage(float dmg)
+    public void TakeDamage(float damage)
     {
-        var prevHealth = CurrentHealth;
-        CurrentHealth -= dmg;
+        if (damage <= 0 || currentHealth <= 0) return; 
 
+        var prevHealth = currentHealth;
+        
+        currentHealth = Mathf.Max(currentHealth - damage, 0);
+        
         DamageTaken?.Invoke(new DamageTakenArgs
         {
-            CurrentRatio = CurrentHealth / MaxHealth,
+            CurrentRatio = currentHealth / maxHealth,
         });
-
-        if (prevHealth > 0 && CurrentHealth <= 0)
+        
+        if (prevHealth > 0 && currentHealth <= 0)
         {
-            Died?.Invoke();
+            Die(); 
         }
 
-        _countPerFrame += 1;
+        _countPerFrame += 1; 
+    }
+    
+    public void Heal(float amount)
+    {
+        if (amount <= 0 || currentHealth <= 0) return; 
+        
+        currentHealth = Mathf.Min(currentHealth + amount, maxHealth);
+        
+        DamageTaken?.Invoke(new DamageTakenArgs
+        {
+            CurrentRatio = currentHealth / maxHealth,
+        });
+    }
+    
+    private void Die()
+    {
+        Debug.Log($"{gameObject.name} has died.");
+        Died?.Invoke();  
+        Destroy(gameObject);
+    }
+    
+    public float GetCurrentHealth()
+    {
+        return currentHealth;
+    }
+    
+    public void SetMaxHealth(float newMaxHealth)
+    {
+        maxHealth = newMaxHealth;
+        currentHealth = Mathf.Min(currentHealth, maxHealth); 
     }
     
 }

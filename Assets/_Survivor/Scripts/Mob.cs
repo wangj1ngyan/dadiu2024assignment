@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CharacterController))]
+[RequireComponent(typeof(CharacterController), typeof(Health))]
 public class Mob : MonoBehaviour
 {
 
@@ -14,11 +14,20 @@ public class Mob : MonoBehaviour
     CharacterController _controller;
 
     Hero _target;
+    private Health _health;
 
     void Start()
     {
         _controller = GetComponent<CharacterController>();
         _target = Object.FindAnyObjectByType<Hero>();
+        _health = GetComponent<Health>();
+        _health.SetMaxHealth(_settings.MaxHealth);
+        _health.Died.AddListener(OnMobDied);
+    }
+    
+    void OnMobDied()
+    {
+        Destroy(gameObject); 
     }
 
     void OnEnable()
@@ -42,5 +51,10 @@ public class Mob : MonoBehaviour
                 _controller.Move(motion);
             }
         }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        _health.TakeDamage(damage);
     }
 }

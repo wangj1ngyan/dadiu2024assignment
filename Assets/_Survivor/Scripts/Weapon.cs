@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using _Survivor.Scripts;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
